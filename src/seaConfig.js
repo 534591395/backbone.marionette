@@ -5,5 +5,5 @@ seajs.config({
         "marionette":"widget/marionette/src/marionette",
         "backbone.localStorage":"widget/backbone.localStorage/src/backbone.localStorage"
     },
-    base:'src'
+    base:'/src'
 });

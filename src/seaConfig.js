@@ -5,5 +5,6 @@ seajs.config({
         "marionette":"widget/marionette/src/marionette",
         "backbone.localStorage":"widget/backbone.localStorage/src/backbone.localStorage"
     },
+    //base:'/backbone-marionette/学习/backbone.marionette/src'
     base:'/backbone.marionette/src'
 });

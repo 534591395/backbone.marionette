@@ -1,0 +1,28 @@
+{
+    "name": "underscore",
+    "family": "widget",
+    "version": "1.6.0",
+    "package": "https://raw.github.com/documentcloud/underscore/master/package.json",
+    "description": "JavaScript's functional programming helper library.",
+    "homepage": "http://underscorejs.org",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "Jeremy Ashkenas <jeremy@documentcloud.org>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/documentcloud/underscore.git"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-copy": "~0.4.1",
+        "grunt-cmd-transport": "~0.3.0",
+        "grunt-cmd-concat": "~0.2.5",
+        "grunt-contrib-clean": "~0.4.0",
+        "grunt-contrib-uglify": "0.2.2"
+    },
+    "spm": {
+        "output": ["underscore.js"],
+        "alias": {
+            "underscore": "widget/underscore/1.6.0/underscore"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "family": "widget",
+  "name": "backbone",
+  "version": "1.1.2",
+  "description": "Give your JS App some Backbone with Models, Views, Collections, and Events.",
+  "homepage": "http://backbonejs.org",
+  "keywords": ["model", "view", "controller", "router", "server", "client", "browser"],
+  "author": "Jeremy Ashkenas <jeremy@documentcloud.org>",
+  "package": "https://raw.github.com/documentcloud/backbone/master/package.json",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-copy": "~0.4.1",
+        "grunt-cmd-transport": "~0.3.0",
+        "grunt-cmd-concat": "~0.2.5",
+        "grunt-contrib-clean": "~0.4.0",
+        "grunt-contrib-uglify": "0.2.2"
+    },
+    "spm": {
+    "alias": {
+      "$": "$",
+      "underscore": "widget/underscore/1.6.0/underscore"
+    },
+    "output": ["backbone.js"]
+  }
+}

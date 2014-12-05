@@ -1,0 +1,38 @@
+.Groupon {
+  padding-top: 70px;
+}
+.Groupon .Groupon-navbar {
+  background: #fe9417;
+  border-bottom: 1px #ededed solid;
+  padding: 5px 5px 0px 10px;
+}
+@media (min-width: 100px) {
+  .Groupon .Groupon-navbar .navbar-header {
+    float: left;
+  }
+}
+.Groupon .Groupon-navbar .navbar-header .Groupon-brand {
+  padding: 0;
+}
+.Groupon .Groupon-navbar ul.Groupon-navbar-right {
+  float: right;
+  color: #ffffff;
+}
+.Groupon .Groupon-navbar ul.Groupon-navbar-right li {
+  display: inline-block;
+}
+.Groupon .Groupon-navbar ul.Groupon-navbar-right li img.header_button {
+  width: 32px;
+  height: 32px;
+  float: right;
+  margin: 0px 0px 0px -25px;
+  position: relative;
+  top: -10px;
+}
+.Groupon .Groupon-navbar ul.Groupon-navbar-right li span.white_12_label {
+  color: #ffffff;
+  font-size: 12px;
+  position: relative;
+  top: 20px;
+  left: 5px;
+}

@@ -1,5 +1,6 @@
 .Groupon {
   padding-top: 70px;
+  padding-bottom: 70px;
 }
 .Groupon .Groupon-navbar {
   background: #fe9417;
@@ -35,4 +36,14 @@
   position: relative;
   top: 20px;
   left: 5px;
+}
+.Groupon .list .row li {
+  float: left;
+  list-style: none;
+}
+.Groupon .list .row li:nth-child(1) {
+  width: 40%;
+}
+.Groupon .list .row li:nth-child(2) {
+  width: 60%;
 }

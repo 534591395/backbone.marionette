@@ -26,5 +26,114 @@ define(function(require, exports){
     tool.mark.Manager = GrouponManager;
 
 
+    //容器
+    GrouponManager.addRegions({
+        content:'#main'
+    });
+
+    //建立数据模型
+    GrouponManager.module('Entities', function(Entities, DDNSManager, Backbone,Marionette,$,_){
+
+        /* =S localStorage */
+
+        var getValue = function(attributeOrFunction){
+            if(typeof attributeOrFunction === 'function'){
+                return attributeOrFunction();
+            }
+            else{
+                return attributeOrFunction;
+            }
+        };
+
+        var findStorageKey = function(entity){
+            // use a model's urlRoot value
+            if(entity.urlRoot){
+                return getValue(entity.urlRoot);
+            }
+            // use a collection's url value
+            if(entity.url){
+                return getValue(entity.url);
+            }
+            // fallback to obtaining a model's storage key from
+            // the collection it belongs to
+            if(entity.collection && entity.collection.url){
+                return getValue(entity.collection.url);
+            }
+
+            throw new Error("Unable to determine storage key");
+        };
+
+        var StorageMixin = function(entityPrototype){
+            var storageKey = findStorageKey(entityPrototype);
+            return { localStorage: new Backbone.LocalStorage(storageKey) };
+        };
+
+        Entities.configureStorage = function(entity){
+            _.extend(entity.prototype, new StorageMixin(entity.prototype));
+        };
+
+        /* =E localStorage */
+
+
+        //单个数据
+        Entities.Contact = new Backbone.Model.extends({
+            defaults:{
+                imgSrc:'',
+                title:'',
+                content:'',
+                originalPrice:'',
+                currentPrice:'',
+                salesVolume:'',
+                favorable:''
+            }
+        });
+
+        Entities.configureStorage(Entities.Contact);
+        //集合
+        Entities.ContactCollection = new Backbone.Collection.extends({
+            url:'',
+            model:Entities.Data,
+            comparator: function(model){
+                return model.get('id')
+            }
+        });
+
+        Entities.configureStorage(Entities.ContactCollection);
+
+
+        //获取数据方法
+        var API = {
+            getContactEntities: function(dataConfig){
+                var contacts = new Entities.ContactCollection();
+                var defer = $.Deferred();
+                setTimeout(function(){
+                    contacts.fetch({
+                        success: function(data){
+                            if(data && data.data.length == 0 ){
+                                data.data = tool.mark.UnLineData;
+                                contacts.reset(data.data);
+                            }
+                            defer.resolve(data);
+                        }
+                    });
+                },100);
+
+                var promise = defer.promise();
+                return promise;
+            }
+        };
+
+        //对外接口
+        GrouponManager.reqres.setHandler("contact:entities", function(){
+            return API.getContactEntities();
+        });
+
+
+
+    });
+
+
+
+
 
 });
